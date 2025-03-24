@@ -1,0 +1,342 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class IndexPage extends StatelessWidget {
+  // The map containing phrases and their corresponding GIF paths
+  final Map<String, String> data = {
+     "what time is it":"whattimeisit.gif",
+  "كم الساعه": "whattimeisit.gif",
+  "airplane": "Airplane.gif",
+  "طائره": "Airplane.gif",
+  "all": "All.gif",
+  "الكل": "All.gif",
+  "all night": "AllNight.gif",
+  "طوال الليل": "AllNight.gif",
+  "awesome": "Awesome.gif",
+  "رائع": "Awesome.gif",
+  "baby": "Baby.gif",
+  "طفل": "Baby.gif",
+  "big": "Big.gif",
+  "كبير": "Big.gif",
+  "box office": "BoxOffice.gif",
+  "شباك التذاكر": "BoxOffice.gif",
+  
+  "bus": "Bus.gif",
+  "حافله": "Bus.gif",
+  
+  "car": "Car.gif",
+  "سياره": "Car.gif",
+  "children": "Children.gif",
+  "اطفال": "Children.gif",
+  "congratulations": "Award.gif",
+  "مبروك": "Award.gif",
+  "cool": "Cool.gif",
+  "لطيف": "Cool.gif",
+  "day": "Day.gif",
+  "يوم": "Day.gif",
+  
+  "delete": "Delete.gif",
+  "حذف": "Delete.gif",
+  "dusk": "Dusk.gif",
+  "الغسق": "Dusk.gif",
+  "early": "Early.gif",
+  "مبكر": "Early.gif",
+  "eating": "Eating.gif",
+  "تناول الطعام": "Eating.gif",
+  "emergency": "Emergency.gif",
+  "طارئ": "Emergency.gif",
+  "empty": "Empty.gif",
+  "فارغ": "Empty.gif",
+  
+  "evening": "Evening.gif",
+  "مساء": "Evening.gif",
+  "everyday": "EveryDay.gif",
+  "كل يوم": "EveryDay.gif",
+  "every week": "EveryWeek.gif",
+  "كل اسبوع": "EveryWeek.gif",
+  "facebook": "Facebook.gif",
+  "فيسبوك": "Facebook.gif",
+  "family": "Family.gif",
+  "عائله": "Family.gif",
+  "father": "Father.gif",
+  "اب": "Father.gif",
+  "fire": "Fire.gif",
+  "حريق": "Fire.gif",
+  "Friday": "Friday.gif",
+  "الجمعه": "Friday.gif",
+  "friend": "Friend.gif",
+  "صديق": "Friend.gif",
+  "fun": "Fun.gif",
+  "مرح": "Fun.gif",
+  "game": "Game.gif",
+  "لعبه": "Game.gif",
+  "انا اريد": "giphy.gif",
+  "I want": "giphy.gif",
+  
+  
+  "good evening": "Goodevening.gif",
+  "مساء الخير": "Goodevening.gif",
+  "good morning": "Good Morning.gif",
+  "صباح الخير": "Good Morning.gif",
+  "good night": "Good Night.gif",
+  "تصبح على خير": "Good Night.gif",
+
+  "grandfather": "grandFather.gif",
+  "جد": "grandFather.gif",
+  "grandmother": "GrandMother.gif",
+  "جده": "GrandMother.gif",
+  "happy": "Happy.gif",
+  "سعيد": "Happy.gif",
+  "#": "Hashtag.gif",
+  "هاشتاج": "Hashtag.gif",
+  "hello": "Hello.gif",
+  "مرحبا": "Hello.gif",
+  "home": "Home.gif",
+  "منزل": "Home.gif",
+  "our": "Hour.gif",
+  "ساعه": "Hour.gif",
+  "how are you": "HowAreYou.gif",
+  "كيف حالك": "HowAreYou.gif",
+  "how are you doing": "HowAreYouDoing.gif",
+  "كيف الامور": "HowAreYouDoing.gif",
+  "I don't know": "IDontKnow.gif",
+  "لا اعرف": "IDontKnow.gif",
+  "i don't like this": "Idon'tlike this.gif",
+  "لا يعجبني هذا": "Idon'tlike this.gif",
+  "I don't understand": "Idon'tunderatand.gif",
+  "لا افهم": "Idon'tunderatand.gif",
+  "I enjoy this": "Ienjoy this.gif",
+  "استمتع بهذا": "Ienjoy this.gif",
+  "I know": "IKnow.gif",
+  "اعرف": "IKnow.gif",
+  "I like it": "I Like It.gif",
+  "اعجبني": "I Like It.gif",
+  
+  
+  "I will help you": "I'll help you.gif",
+  "ساساعدك": "I'll help you.gif",
+  "I'm fine": "I'm Fine.gif",
+  "اليوم التالي": "NextDay.gif",
+  "next day": "NextDay.gif",
+  "حجم متوسط": "MediumSizeBowl.gif",
+  "medium size": "MediumSizeBowl.gif",
+  "انا بخير": "I'm Fine.gif",
+  "Instagram": "Instagram.gif",
+  "انستقرام": "Instagram.gif",
+  "internet": "Internete.gif",
+  "انترنت": "Internete.gif",
+  "large": "Large.gif",
+  "واسع": "Large.gif",
+  "late": "Late.gif",
+  "متاخر": "Late.gif",
+  "length": "Length.gif",
+  "طول": "Length.gif",
+  "love": "Love.gif",
+  "حب": "Love.gif",
+  "medium": "Medium.gif",
+  "متوسط": "Medium.gif",
+  "mother": "Mother.gif",
+  "ام": "Mother.gif",
+  "يعني": "Mean.gif",
+  "mean": "Mean.gif",
+  "motorcycle": "Motorcycle.gif",
+  "دراجه ناريه": "Motorcycle.gif",
+  "no": "No.gif",
+  "لا": "No.gif",
+  "number": "Number.gif",
+  "رقم": "Number.gif",
+  "parents": "Parents.gif",
+  "والدين": "Parents.gif",
+  "please repeat": "PleaseRepeat.gif",
+  "من فضلك اعد": "PleaseRepeat.gif",
+  "recording": "Recording.gif",
+  "تسجيل": "Recording.gif",
+  "sad": "Sad.gif",
+  "حزين": "Sad.gif",
+  
+  
+  "sister": "Sister.gif",
+  "اخت": "Sister.gif",
+  "sorry": "Sorry.gif",
+  "اسف": "Sorry.gif",
+  "time": "Time.gif",
+  "وقت": "Time.gif",
+  "today": "Today.gif",
+  "اليوم": "Today.gif",
+  "tomorrow": "Tomorrow.gif",
+  "غدا": "Tomorrow.gif",
+  "work": "Work.gif",
+  "عمل": "Work.gif",
+  "صغير": "Small.gif",
+  "small": "Small.gif",
+  
+  "Saturday": "Saturday.gif",
+  "السبت": "Saturday.gif",
+  "Sunday": "Sunday.gif",
+  "الاحد": "Sunday.gif",
+  "quarterback": "Quarterback.gif",
+  "قائد الفريق": "Quarterback.gif",
+  "see the difference": "See the difference.gif",
+  "هل رايت الفرق": "See the difference.gif",
+  "stunned": "Stunned.gif",
+  "مذهول": "Stunned.gif",
+  "surprise": "Surprise.gif",
+  "مفاجاه": "Surprise.gif",
+  "which building": "WhichBuilding.gif",
+  "اي مبنى": "WhichBuilding.gif",
+  "volleyball": "voleyball.gif",
+  "كره الطائره": "voleyball.gif",
+  "medium mug": "medium mug.gif",
+  "كوب متوسط": "medium mug.gif",
+  "point": "Point.gif",
+  "اشر": "Point.gif",
+  "when is class finished": "when is class finished.gif",
+  "متى ينتهي الفصل": "when is class finished.gif",
+  "Maybe": "Maybe.gif",
+  "ربما": "Maybe.gif",
+  "where is the classroom": "where is the classroom.gif",
+  "اين هو الفصل الدراسي": "where is the classroom.gif",
+  "shy": "Shy.gif",
+  "خجول": "Shy.gif",
+  
+  
+  "it is clear": "it's clear.gif",
+  "انه واضح": "it's clear.gif",
+  "are you okay": "are you okay.gif",
+  "هل انت بخير": "are you okay.gif",
+  "it is really hard": "it is really hard.gif",
+  "انه صعب للغايه": "it is really hard.gif",
+   
+  "Weekend": "Weekend.gif",
+  "نهايه الاسبوع": "Weekend.gif",
+  "Thursday": "Thursday.gif",
+  "الخميس": "Thursday.gif",
+  "Wednesday": "wednesday.gif",
+  "الاربعاء": "wednesday.gif",
+  "Tuesday": "Tuesday.gif",
+  "الثلاثاء": "Tuesday.gif",
+  "Monday": "monday.gif",
+  "الاثنين": "monday.gif",
+  "time Passage": "time passage.gif",
+  "مرور الوقت": "time passage.gif",
+  "soon": "Soon.gif",
+  "قريبا": "Soon.gif",
+  "social media": "SocialMedia.gif",
+  "وسائل التواصل الاجتماعي": "SocialMedia.gif",
+  "Twitter": "Twitter.gif",
+  "تويتر": "Twitter.gif",
+  "signing vlog": "signing vlog.gif",
+  "تدوين الاشاره": "signing vlog.gif",
+  "truck": "Truck.gif",
+  "شاحنه": "Truck.gif",
+  "ambulance": "Ambulance.gif",
+  "سياره اسعاف": "Ambulance.gif",
+  "police": "Police.gif",
+  "شرطه": "Police.gif",
+  "firefighter": "firefighter.gif",
+  "رجل الاطفاء": "firefighter.gif",
+  "تهجئه": "spell out .gif",
+  "spell": "spell out .gif",
+    // Add more items as needed
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: AppBar(
+        backgroundColor: Colors.blue[900],
+        title: Text(
+          'فهرس الصور',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0), // Add padding to the entire body
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.keys.length,
+                itemBuilder: (context, index) {
+                  String phrase = data.keys.elementAt(index);
+                  String gifPath = data[phrase]!;
+
+                  return Center(
+                    child: Card(
+                      color: Color(0xFF002244),
+                      margin: EdgeInsets.symmetric(vertical: 8),
+                      elevation: 4,
+                      child: ListTile(
+                        onTap: () {
+                          Get.dialog(
+                            AlertDialog(
+                              content: Image.asset("assets/"+gifPath),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  child: Text("Close"),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        title: Text(
+                          phrase,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        leading: Image.asset("assets/"+gifPath,
+                            width: 40,
+                            height:
+                                40), // Optional: Display a small preview of the GIF
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Add action for "رجوع"
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue[900],
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  ),
+                  child: Text(
+                    'رجوع',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Add action for "حفظ"
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue[900],
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  ),
+                  child: Text(
+                    'حفظ',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
