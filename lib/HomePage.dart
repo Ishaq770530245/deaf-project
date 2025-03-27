@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _selectedLanguage = "en";
   int index = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +47,9 @@ class _HomePageState extends State<HomePage> {
           color: Colors.green,
         ),
         backgroundColor: Color(0xFF002244),
-        items:  [
-          BottomNavigationBarItem(icon: Icon(Icons.arrow_back), label: "Back".tr),
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.arrow_back), label: "Back".tr),
           BottomNavigationBarItem(icon: Icon(Icons.save), label: "Save".tr),
           BottomNavigationBarItem(
               icon: Icon(Icons.accessibility_new), label: "Detect sign".tr),
@@ -73,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 items: [
                   PopupMenuItem<String>(
                     child: Text('index'.tr),
-                    onTap: () => Get.to(()=>IndexPage()),
+                    onTap: () => Get.to(() => IndexPage()),
                   ),
                 ],
               );
@@ -146,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 16),
-           /* _buildNavCard(
+            /* _buildNavCard(
               context,
               'Video Recording'.tr,
               Icons.videocam,

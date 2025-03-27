@@ -1,6 +1,6 @@
 import 'package:deafproject/NotificationPage.dart';
+import 'package:deafproject/auth/profile.dart';
 import 'package:deafproject/learn.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -82,10 +82,18 @@ class _SurveyState extends State<Survey> {
             },
             icon: Icon(Icons.change_circle),
           ),
-          IconButton(onPressed: () {
-            Get.to(()=>NotificationPage());
-                      }, icon: Icon(Icons.notifications)),
-         // IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.moon_circle)),
+          IconButton(
+              onPressed: () {
+                Get.to(() => NotificationPage());
+              },
+              icon: Icon(Icons.notifications)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Profile()));
+              },
+              icon: Icon(Icons.person)),
+          // IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.moon_circle)),
         ],
       ),
       body: SingleChildScrollView(
@@ -124,8 +132,8 @@ class _SurveyState extends State<Survey> {
                   items: [
                     DropdownMenuItem(value: "Deaf", child: Text("Deaf2".tr)),
                     DropdownMenuItem(value: "Mute", child: Text("Mute2".tr)),
-                     DropdownMenuItem(value: "both", child: Text("ssss2".tr))
-                     , DropdownMenuItem(value: "others", child: Text("others".tr))
+                    DropdownMenuItem(value: "both", child: Text("ssss2".tr)),
+                    DropdownMenuItem(value: "others", child: Text("others".tr))
                   ],
                 ),
               ),
@@ -176,7 +184,7 @@ class _SurveyState extends State<Survey> {
             SizedBox(
               height: 150,
             ),
-           /* Center(
+            /* Center(
               child: Container(
                 child: ElevatedButton(
                   onPressed: () {

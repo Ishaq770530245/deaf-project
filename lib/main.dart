@@ -1,23 +1,13 @@
 // main.dart
 import 'package:deafproject/FirstPage.dart';
 import 'package:deafproject/ForgetPassword.dart';
-import 'package:deafproject/Info.dart';
 import 'package:deafproject/Signup.dart';
-import 'package:deafproject/Text.dart';
-import 'package:deafproject/audio.dart';
+import 'package:deafproject/auth/login.dart';
 import 'package:deafproject/controller/SignLanguageController.dart';
-import 'package:deafproject/learn.dart';
 import 'package:deafproject/translations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-import 'package:get/get.dart';
-import 'package:speech_to_text/speech_to_text.dart';
-import 'package:video_player/video_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +20,7 @@ class DeafAssistApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      print("jgkdgjkfkjgfdjkfgdjklfdk");
+      // print("jgkdgjkfkjgfdjkfgdjklfdk");
       return GetMaterialApp(
         locale: Locale("en"),
         translations: AppTranslations(),
@@ -79,7 +69,8 @@ class DeafAssistApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const LoginScreen(),
+        // home: const LoginScreen(),
+        home: const Login(),
       );
     });
   }
@@ -245,7 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 40,
                             child: ElevatedButton(
                               onPressed: () {
-                                Get.to(()=>Forgetpassword());
+                                Get.to(() => Forgetpassword());
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
