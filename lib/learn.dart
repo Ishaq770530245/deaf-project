@@ -55,7 +55,7 @@ class _LearnState extends State<Learn> {
                   ],
                 ),
                 content: Text(
-                  "You have a reminder scheduled for ${timer['timer_time']}.\n\nWould you like to mark it as done or be reminded later?"
+                  "You have a reminder scheduled for ${timer['timer_time']}.\n\nWould you like to mark with description ( ${timer['description']} )it as done or be reminded later?"
                       .tr,
                   style: const TextStyle(color: Colors.white70),
                 ),
