@@ -45,6 +45,8 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   Future<void> _handleUpdate() async {
+    defaultNotificationTime = user!['notificationTime'] ?? '08:00 AM';
+
     if (_formKey.currentState!.validate() && user != null) {
       Map<String, dynamic> updatedUser = {
         'name': _nameController.text,
@@ -183,20 +185,6 @@ class _EditProfileState extends State<EditProfile> {
                                 hintText: "Enter your email".tr,
                                 keyboardType: TextInputType.emailAddress,
                                 validator: FormValidator.validateEmail,
-                              ),
-                              const SizedBox(height: 24),
-                              // Optional: add more fields like notification time if needed.
-                              _buildFormField(
-                                label: "Notification Time".tr,
-                                controller: TextEditingController(
-                                    text: defaultNotificationTime),
-                                prefixIcon: Icons.alarm,
-                                hintText: "Enter notification time".tr,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty)
-                                    return "Notification time is required";
-                                  return null;
-                                },
                               ),
                               const SizedBox(height: 24),
                               Text(

@@ -1,3 +1,4 @@
+import 'package:deafproject/HomePage.dart';
 import 'package:deafproject/auth/profile.dart';
 import 'package:deafproject/db_helper.dart';
 import 'package:deafproject/detect_sign_language.dart';
@@ -223,7 +224,7 @@ class _LearnState extends State<Learn> {
             );
           }
           if (index == 2) {
-            Get.to(() => FAQPage());
+            Get.to(() => HomePage());
           }
         },
         showSelectedLabels: true,
